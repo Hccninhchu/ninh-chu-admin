@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ninh-chu-admin
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+  - type: pserv
+    name: ninh-chu-db
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.postgres
